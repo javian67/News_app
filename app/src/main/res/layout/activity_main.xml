@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Guideline vertikal 10% dari kiri -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <!-- Guideline vertikal 10% dari kanan -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <!-- Header / App Bar -->
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#6200EE"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="News App"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ScrollView untuk isi konten -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tvHeader"
+        app:layout_constraintBottom_toTopOf="@+id/layoutBottom"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Gambar berita -->
+            <ImageView
+                android:id="@+id/imgNews"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/rmj" />
+
+            <!-- Judul berita -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Real Madrid Juara Liga Champions 2017"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Isi berita -->
+            <TextView
+                android:id="@+id/tvContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Real Madrid merebut gelar Liga Champions ke-12 setelah mengalahkan Juventus 4-1 pada laga final 2017 di Stadion Millennium, Cardiff, Sabtu (3/6) malam waktu setempat.
+Cristiano Ronaldo menjadi bintang kemenangan Madrid dengan mencetak dua gol. Juventus sempat memberi perlawanan di babak pertama meski sempat tertinggal.
+I Bianconeri bahkan sempat mendominasi jalannya awal babak pertama. Empat menit laga berjalan Juventus memiliki dua peluang, namun sundulan Gonzalo Higuain menit ketiga dan tendangannya menit keempat masih mampu diantisipasi kiper Keylor Navas.
+Tekanan Juventus terus berlanjut. Sebuah tendangan keras Miralem Pjanic ke pojok kanan gawang pada menit keenam berhasil dengan gemilang dihentikan Navas. Meski terus diserang, Madrid justru mampu mencetak gol lebih dulu pada menit ke-20 melalui Ronaldo. Lewat serangan balik yang cepat, Dani Carvajal berhasil menemukan Ronaldo di dalam kotak penalti Juventus.
+Dengan sekali sentuh Ronaldo melepaskan tendangan kaki kanan. Bola sempat mengenai bek Juventus Leonardo Bonucci dan masuk ke sisi kanan gawang Gianluigi Buffon. 1-0 untuk Madrid.
+Tertinggal satu gol membuat Juventus terpaksa meningkatkan serangan. I Bianconeri hanya butuh tujuh menit untuk menyamakan kedudukan lewat gol spektakuler Mario Mandzukic.
+Berawal dari umpan silang Alex Sandro kepada Higuain, penyerang asal Argentina itu kemudian memberi umpan ke Mandzukic. Tanpa pikir panjang Mandzukic langsung melepaskan tendangan salto yang tidak mampu dihentikan Navas. Skor imbang 1-1 bertahan hingga akhir babak pertama."
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation (LinearLayout dengan 2 tombol) -->
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end">
+
+        <Button
+            android:id="@+id/btnPrev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#6200EE"
+            android:text="Sebelumnya"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#6200EE"
+            android:text="Selanjutnya"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
